@@ -5,7 +5,7 @@ import { Header, Footer } from '../components'
 import './index.css'
 import styled from 'styled-components'
 import { Provider, inject, observer } from 'mobx-react'
-import Store from '../store/'
+import store from '../store/'
 
 const Content = styled.div`
   margin: 0 auto;
@@ -17,18 +17,18 @@ const Content = styled.div`
 @observer
 class TemplateWrapper extends React.Component {
   static propTypes = {
-    children: PropTypes.func
+    children: PropTypes.func,
   }
 
   render() {
     return (
-      <Provider store={Store}>
+      <Provider store={store}>
         <div>
           <Helmet
-            title={Store.title}
+            title={store.title}
             meta={[
               { name: 'description', content: 'Sample' },
-              { name: 'keywords', content: 'sample, something' }
+              { name: 'keywords', content: 'sample, something' },
             ]}
           />
           <Header />

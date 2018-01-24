@@ -5,7 +5,7 @@ import { Title } from '../components'
 
 @Title('第二页')
 @inject(stores => ({
-  updateTitle: stores.store.updateTitle
+  updateTitle: stores.store.updateTitle,
 }))
 @observer
 export default class SecondPage extends React.Component {
