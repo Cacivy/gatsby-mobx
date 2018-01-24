@@ -4,7 +4,11 @@
   "version": "1.0.0",
   "author": "Cacivy",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "react",
+    "mobx",
+    "mobx-react",
+    "styled-components"
   ],
   "license": "MIT",
   "main": "n/a",
