@@ -48,7 +48,7 @@ const MenuLi = styled.li`
   color: #fff;
 `
 
-const Menu = (props) => (
+const Menu = props => (
   <MenuUl>
     {props.list.map(menu => (
       <MenuLi>
@@ -59,7 +59,7 @@ const Menu = (props) => (
 )
 
 Menu.propTypes = {
-  list: PropTypes.array
+  list: PropTypes.array,
 }
 
 const Header = () => (
