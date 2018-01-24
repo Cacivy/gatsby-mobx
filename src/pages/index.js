@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import { Title } from '../components'
 
 const list = [
   {
@@ -23,4 +24,4 @@ const IndexPage = () => (
   </div>
 )
 
-export default IndexPage
+export default Title('首页')(IndexPage)

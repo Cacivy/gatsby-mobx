@@ -51,7 +51,7 @@ const MenuLi = styled.li`
 const Menu = props => (
   <MenuUl>
     {props.list.map(menu => (
-      <MenuLi>
+      <MenuLi key={menu.title}>
         <LinkWapper to={menu.url}>{menu.title}</LinkWapper>
       </MenuLi>
     ))}
