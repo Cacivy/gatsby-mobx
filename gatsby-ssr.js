@@ -6,16 +6,16 @@
 
 // You can delete this file if you're not using it
 
-import React from 'react'
-import { Provider, useStaticRendering } from 'mobx-react'
-import helmet from "react-helmet"
-import { renderToString } from 'react-dom/server'
-import MyStore from './src/store/'
+// import React from 'react'
+// import { Provider, useStaticRendering } from 'mobx-react'
+// import helmet from "react-helmet"
+// import { renderToString } from 'react-dom/server'
+// import MyStore from './src/store/'
 
-exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
-  useStaticRendering(true)
+// exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
+//   useStaticRendering(true)
 
-  replaceBodyHTMLString(
-    renderToString(<Provider store={MyStore}>{bodyComponent}</Provider>)
-  )
-}
+//   replaceBodyHTMLString(
+//     renderToString(<Provider store={MyStore}>{bodyComponent}</Provider>)
+//   )
+// }
