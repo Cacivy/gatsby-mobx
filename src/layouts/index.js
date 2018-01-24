@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-
-import Header from '../components/Header'
+import { Header, Footer } from '../components'
 import './index.css'
 import styled from 'styled-components'
 import { inject, observer } from 'mobx-react'
@@ -14,7 +13,9 @@ const Content = styled.div`
   padding-top: 0;
 `
 
-@inject('store')
+@inject(stores => ({
+  title: stores.store.title
+}))
 @observer
 class TemplateWrapper extends React.Component {
   static propTypes = {
@@ -25,7 +26,7 @@ class TemplateWrapper extends React.Component {
     return (
       <div>
         <Helmet
-          title={this.props.store.title}
+          title={this.props.title}
           meta={[
             { name: 'description', content: 'Sample' },
             { name: 'keywords', content: 'sample, something' },
@@ -33,6 +34,7 @@ class TemplateWrapper extends React.Component {
         />
         <Header />
         <Content>{this.props.children()}</Content>
+        <Footer />
       </div>
     )
   }

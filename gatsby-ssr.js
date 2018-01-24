@@ -4,14 +4,18 @@
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 
- // You can delete this file if you're not using it
+// You can delete this file if you're not using it
 
-//  import { renderToString } from "react-dom/server"
-//  import inline from "glamor-inline"
- 
-//  exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
-//    const bodyHTML = renderToString(bodyComponent)
-//    const inlinedHTML = inline(bodyHTML)
- 
-//    replaceBodyHTMLString(inlinedHTML)
-//  }
+import React from 'react'
+import { Provider, useStaticRendering } from 'mobx-react'
+import helmet from "react-helmet"
+import { renderToString } from 'react-dom/server'
+import MyStore from './src/store/'
+
+exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
+  useStaticRendering(true)
+
+  replaceBodyHTMLString(
+    renderToString(<Provider store={MyStore}>{bodyComponent}</Provider>)
+  )
+}

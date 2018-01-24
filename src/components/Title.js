@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
-import { inject } from 'mobx-react'
+import { inject, observer } from 'mobx-react'
 
 export default title => {
   return WrappedComponent => {
-    return inject('store')(
+    return (
+      @inject(stores => ({
+        updateTitle: stores.store.updateTitle
+      }))
+      @observer
       class PP extends React.Component {
         componentDidMount() {
-          this.props.store.updateTitle(title)
+          this.props.updateTitle(title)
         }
 
         render() {
